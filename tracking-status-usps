@@ -13,7 +13,7 @@ headers = {
     "User-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
 }
 
-# Iterate over a range of rows
+# Iterate over a range of rows, change the second value to adjust the range you need, if there is no value, script will stop by itself
 for row_number in range(1, 25):
 
     # Get the tracking number from the cell in the Google Sheet
