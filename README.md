@@ -1,20 +1,3 @@
-This code retrieves tracking numbers from a Google Sheet and uses them to scrape delivery status information from the USPS website. It then updates the Google Sheet with the extracted delivery status and date information.
-
-Here's a step-by-step breakdown of how the code works:
-1. The necessary libraries, including BeautifulSoup, requests, and gspread, are imported.
-2. The code establishes a connection with the Google Sheet named "Get tracking" and selects the worksheet named "testing" for further operations.
-3. A custom user-agent header is set to mimic a browser for the requests made to the USPS website.
-4. The code iterates over a range of rows, from 1 to the last cell in a column with a value in it (this range can be adjusted manualy).
-5. For each row, the tracking number is retrieved from the corresponding cell in the Google Sheet.
-6. Using the tracking number, a URL is constructed to access the USPS website's tracking page for that specific package.
-7. A GET request is sent to the USPS website with the constructed URL, and the response content is parsed using BeautifulSoup.
-8. The code extracts the delivery status and date information from the parsed HTML content.
-9. The extracted delivery status and date are updated in the Google Sheet, in the respective columns for each row.
-10. The URL and delivery status are printed for verification purposes.
-11. Optional lines for additional checking, such as printing the delivery date and tracking number, are included but commented out.
-
-The code effectively automates the process of retrieving delivery status information from the USPS website for a list of tracking numbers stored in a Google Sheet, allowing for efficient tracking and updating of package statuses in the sheet.
-
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
@@ -126,32 +109,23 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+1. In order to have this project started you will need to install pip.
+   With pip installed you will require these packages to be installed:
+    ```sh
+    pip install beautifulsoup4
+    pip install requests
+    pip install gspread
+    ```
+2. In order to get the script running you have to enable Google Sheet API for your Google Sheet.
+   Follow the link below to learn how to do it:
+    https://support.google.com/googleapi/answer/6158841?hl=en
+    https://support.google.com/googleapi/answer/6158862?hl=en&ref_topic=7013279&sjid=7464328562354771065-EU
 
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+3. Download your service_account.json and place it into the scrpit folder location.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -160,9 +134,22 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+This code retrieves tracking numbers from a Google Sheet and uses them to scrape delivery status information from the USPS website. It then updates the Google Sheet with the extracted delivery status and date information.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Here's a step-by-step breakdown of how the code works:
+1. The necessary libraries, including BeautifulSoup, requests, and gspread, are imported.
+2. The code establishes a connection with the Google Sheet named "Get tracking" and selects the worksheet named "testing" for further operations.
+3. A custom user-agent header is set to mimic a browser for the requests made to the USPS website.
+4. The code iterates over a range of rows, from 1 to the last cell in a column with a value in it (this range can be adjusted manualy).
+5. For each row, the tracking number is retrieved from the corresponding cell in the Google Sheet.
+6. Using the tracking number, a URL is constructed to access the USPS website's tracking page for that specific package.
+7. A GET request is sent to the USPS website with the constructed URL, and the response content is parsed using BeautifulSoup.
+8. The code extracts the delivery status and date information from the parsed HTML content.
+9. The extracted delivery status and date are updated in the Google Sheet, in the respective columns for each row.
+10. The URL and delivery status are printed for verification purposes.
+11. Optional lines for additional checking, such as printing the delivery date and tracking number, are included but commented out.
+
+The code effectively automates the process of retrieving delivery status information from the USPS website for a list of tracking numbers stored in a Google Sheet, allowing for efficient tracking and updating of package statuses in the sheet.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,21 +187,12 @@ Don't forget to give the project a star! Thanks again!
 
 
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Your Name - [@twitter_handle](https://twitter.com/Bartosszzmm) - musiolbartosz@gmail.com  
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [[https://github.com/github_username/repo_name](https://github.com/bartoszzm/tracking-number-webscraper/tree/main)]([https://github.com/github_username/repo_name](https://github.com/bartoszzm/tracking-number-webscraper/tree/main))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
