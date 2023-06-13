@@ -1,52 +1,19 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">project_title</h3>
+<h3 align="center">ptracking-number-webscraper
+</h3>
 
   <p align="center">
-    project_description
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/bartoszzm/tracking-number-webscraper"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/bartoszzm/tracking-number-webscraper">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/bartoszzm/tracking-number-webscraper/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/bartoszzm/tracking-number-webscraper/issues">Request Feature</a>
   </p>
 </div>
 
@@ -66,15 +33,10 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -83,9 +45,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+This Python project utilizes various libraries and APIs to automate tracking shipments using USPS tracking numbers. It connects to a Google Sheet, retrieves tracking numbers, and sends HTTP requests to the USPS website. It parses the HTML response to extract delivery status and date information, which is then updated back into the Google Sheet. The script also includes error handling and logging for verification purposes. Overall, it streamlines the process of tracking shipments and keeping the Google Sheet up-to-date with the latest information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -93,15 +53,10 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
+* Python 3.11
+* Beatifulsoup4  
+* Google Sheet API
+  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -122,8 +77,8 @@ To get a local copy up and running follow these simple example steps.
     ```
 2. In order to get the script running you have to enable Google Sheet API for your Google Sheet.
    Follow the link below to learn how to do it:
-    https://support.google.com/googleapi/answer/6158841?hl=en
-    https://support.google.com/googleapi/answer/6158862?hl=en&ref_topic=7013279&sjid=7464328562354771065-EU
+   * https://support.google.com/googleapi/answer/6158841?hl=en
+   * https://support.google.com/googleapi/answer/6158862?hl=en&ref_topic=7013279&sjid=7464328562354771065-EU
 
 3. Download your service_account.json and place it into the scrpit folder location.
 
@@ -134,36 +89,27 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-This code retrieves tracking numbers from a Google Sheet and uses them to scrape delivery status information from the USPS website. It then updates the Google Sheet with the extracted delivery status and date information.
+This project is a Python script that utilizes various libraries and APIs to track shipments using USPS tracking numbers.
+2. Importing necessary libraries: The script imports the `time`, `logging`, `BeautifulSoup` from `bs4`, `requests`, and `gspread` libraries.
+3. Setting up logging: The logging module is configured to log messages with the timestamp, severity level, and message content.
+4. Connecting to the Google Sheet: The script establishes a connection to a Google Sheet named "Get tracking" using the `gspread` library and assigns the worksheet named "testing" to the `work_book_sheet` variable.
+5. Setting the user-agent header: The script sets the user-agent header in the HTTP requests to mimic a browser.
+6. Getting the total number of rows: The script retrieves the total number of rows in the worksheet using the `row_count` property of the `work_book_sheet` object.
+7. Iterating over the rows: The script uses a `for` loop to iterate over the rows in the worksheet, from 1 to the total number of rows.
+8. Tracking number retrieval: For each row, the script retrieves the tracking number from the first cell of that row in the Google Sheet.
+9. Checking for an empty cell: The script checks if the retrieved tracking number cell is empty. If it is empty, the loop is stopped, and a message is logged.
+10. Constructing the tracking URL: The script constructs a URL for USPS tracking by appending the tracking number to the base URL.
+11. Sending a GET request: The script sends a GET request to the USPS website using the constructed tracking URL and the specified headers.
+12. Parsing the HTML response: The script uses BeautifulSoup to parse the HTML content of the USPS website response.
+13. Extracting delivery status and date: The script extracts the delivery status and date information from the parsed HTML.
+14. Updating the Google Sheet: The script updates the Google Sheet by writing the delivery status and date information into the respective cells of the current row.
+15. Logging and verification: The script logs the tracking URL and delivery status for verification purposes.
+16. Delaying between iterations: The script introduces a 2-second delay before processing the next row to avoid overwhelming the USPS website.
+17. Error handling: The script includes exception handling to log any errors that occur during the execution, specifying the row number and the corresponding error message.
+18. Additional checking (optional): There are commented-out lines that can be uncommented to print the delivery date and tracking number from the cell for further verification.
 
-Here's a step-by-step breakdown of how the code works:
-1. The necessary libraries, including BeautifulSoup, requests, and gspread, are imported.
-2. The code establishes a connection with the Google Sheet named "Get tracking" and selects the worksheet named "testing" for further operations.
-3. A custom user-agent header is set to mimic a browser for the requests made to the USPS website.
-4. The code iterates over a range of rows, from 1 to the last cell in a column with a value in it (this range can be adjusted manualy).
-5. For each row, the tracking number is retrieved from the corresponding cell in the Google Sheet.
-6. Using the tracking number, a URL is constructed to access the USPS website's tracking page for that specific package.
-7. A GET request is sent to the USPS website with the constructed URL, and the response content is parsed using BeautifulSoup.
-8. The code extracts the delivery status and date information from the parsed HTML content.
-9. The extracted delivery status and date are updated in the Google Sheet, in the respective columns for each row.
-10. The URL and delivery status are printed for verification purposes.
-11. Optional lines for additional checking, such as printing the delivery date and tracking number, are included but commented out.
+Overall, this script automates the process of retrieving tracking numbers from a Google Sheet, querying the USPS website for delivery status, and updating the Google Sheet with the obtained information.
 
-The code effectively automates the process of retrieving delivery status information from the USPS website for a list of tracking numbers stored in a Google Sheet, allowing for efficient tracking and updating of package statuses in the sheet.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -195,48 +141,3 @@ Your Name - [@twitter_handle](https://twitter.com/Bartosszzmm) - musiolbartosz@g
 Project Link: [[https://github.com/github_username/repo_name](https://github.com/bartoszzm/tracking-number-webscraper/tree/main)]([https://github.com/github_username/repo_name](https://github.com/bartoszzm/tracking-number-webscraper/tree/main))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
