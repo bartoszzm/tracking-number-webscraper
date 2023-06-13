@@ -4,7 +4,7 @@ Here's a step-by-step breakdown of how the code works:
 1. The necessary libraries, including BeautifulSoup, requests, and gspread, are imported.
 2. The code establishes a connection with the Google Sheet named "Get tracking" and selects the worksheet named "testing" for further operations.
 3. A custom user-agent header is set to mimic a browser for the requests made to the USPS website.
-4. The code iterates over a range of rows, from 1 to 24 (exclusive).
+4. The code iterates over a range of rows, from 1 to the last cell in a column with a value in it (this range can be adjusted manualy).
 5. For each row, the tracking number is retrieved from the corresponding cell in the Google Sheet.
 6. Using the tracking number, a URL is constructed to access the USPS website's tracking page for that specific package.
 7. A GET request is sent to the USPS website with the constructed URL, and the response content is parsed using BeautifulSoup.
