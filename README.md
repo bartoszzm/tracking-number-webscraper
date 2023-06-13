@@ -89,7 +89,7 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-This project is a Python script that utilizes various libraries and APIs to track shipments using USPS tracking numbers.
+1. This project is a Python script that utilizes various libraries and APIs to track shipments using USPS tracking numbers.
 2. Importing necessary libraries: The script imports the `time`, `logging`, `BeautifulSoup` from `bs4`, `requests`, and `gspread` libraries.
 3. Setting up logging: The logging module is configured to log messages with the timestamp, severity level, and message content.
 4. Connecting to the Google Sheet: The script establishes a connection to a Google Sheet named "Get tracking" using the `gspread` library and assigns the worksheet named "testing" to the `work_book_sheet` variable.
