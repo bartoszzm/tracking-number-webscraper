@@ -54,7 +54,7 @@ This Python project utilizes various libraries and APIs to automate tracking shi
 ### Built With
 
 * Python 3.11
-* Beatifulsoup4  
+* Beautifulsoup4 
 * Google Sheet API
   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
