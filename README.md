@@ -80,7 +80,7 @@ To get a local copy up and running follow these simple example steps.
    * https://support.google.com/googleapi/answer/6158841?hl=en
    * https://support.google.com/googleapi/answer/6158862?hl=en&ref_topic=7013279&sjid=7464328562354771065-EU
 
-3. Download your service_account.json and place it into the scrpit folder location.
+3. Download your service_account.json and place it into any folder. Copy the direction of the folder into the gives line on code in order to load credentials.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
